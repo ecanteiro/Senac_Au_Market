@@ -1,0 +1,45 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.logo {
+  height: 200px;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.slogan {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.button.is-primary-au-market {
+  background-color: #0AB3C4; !important;
+  border-color: transparent; !important;
+  color: #fff; !important;
+}
+
+.button.is-primary-au-market:hover {
+  background-color: transparent; !important;
+  border-color:  #0AB3C4; !important;
+  color:  #0AB3C4; !important;
+}
+
+.is-primary-au-market.is-outlined {
+  background-color: transparent; !important;
+  border-color: #0AB3C4; !important;
+  color: #0AB3C4; !important;
+}
+
+.is-primary-au-market.is-outlined:hover {
+  background-color: #0AB3C4; !important;
+  border-color: transparent; !important;
+  color: #fff; !important;
+}
