@@ -96,8 +96,8 @@ function Address() {
                                     display: 'flex',
                                     justifyContent: 'space-between'
                                 }}
-                                     className="mt-5">
-                                    <Link to={'/'}>
+                                    className="mt-5">
+                                    <Link to={'/about-you'}>
                                         <button className="button is-rounded is-primary-au-market is-outlined">
                                             <span className="icon">
                                                 <i className="fa-solid fa-arrow-left"></i>
@@ -106,7 +106,7 @@ function Address() {
                                         </button>
                                     </Link>
 
-                                    <Link to={'/'}>
+                                    <Link to={'/Cadastropet'}>
                                         <button className="button is-rounded is-primary-au-market">
                                             <span>Avançar</span>
                                             <span className="icon"><i className="fa-solid fa-arrow-right"></i></span>

@@ -11,6 +11,7 @@ import 'bulma/css/bulma.css'
 import SignUp from "./screens/SignUp.jsx";
 import AboutYou from "./screens/AboutYou.jsx";
 import Address from "./screens/Address.jsx";
+import Cadastropet from './screens/Cadastropet';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
     {
         path: "/address",
         element: <Address />
+    },
+    {
+        path:"/Cadastropet",
+        element: <Cadastropet/>
+
     }
 ])
 
