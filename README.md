@@ -1,7 +1,6 @@
 # Au Market
 
 Repositório com o código front-end do projeto Au Market.
-![propaganda](https://github.com/ecanteiro/Senac_Au_Market/assets/80785526/d0712013-c493-44a7-9980-968c627e55ef)
 
 Desenvolvido com [Vite](https://vitejs.dev/), [React](https://react.dev/), [React Router](https://reactrouter.com/en/main) e [Bulma](https://bulma.io/).
 
