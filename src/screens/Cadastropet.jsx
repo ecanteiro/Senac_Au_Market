@@ -1,69 +1,77 @@
 import { Link } from "react-router-dom";
-import Menu from "../components/Menu";
 
-function Cadastropet(){
+function Cadastropet() {
     return(
         <>
             <div className="container is-fluid">
                 <section className="mt-5">
-                <div className="columns">
+                    <div className="columns">
                         <div className="column">
-                            <h1 className="subtitle" style={{color: '#0AB3C4',textAlign:"center"}}>Sobre seu pet</h1>
+                            <h1 className="subtitle"
+                                style=
+                                {{color:'#06B3C4',
+                                textAlign:"center",}}>
+                                Sobre seu pet</h1>
 
                             <form action="">
                                 <div className="field">
-                                    <label className="label">Nome do pet</label>
-                                    <div className="control">
-                                        <input className="input"
-                                            type="string"
-                                            placeholder="Pepe"
-                                            required={true}
-                                        />
-                                    </div>
+                                    <label className="label"
+                                    style={{color:'#777777',}}>
+                                    Nome do pet</label>
+                                        <div className="control">
+                                            <input className="input" type="string"
+                                                placeholder="Pepe" required={true}
+                                            />
+                                        </div>
                                 </div>
 
                                 <div className="field">
-                                    <label className="label">Raça</label>
-                                    <div className="control">
-                                        <input className="input"
-                                            type="string"
-                                            required={true}
-                                            placeholder="pitbull"
-                                        />
-                                    </div>
+                                    <label className="label"
+                                    style={{color:'#777777',}}>
+                                    Raça</label>
+                                        <div className="control">
+                                            <input className="input" type="string"
+                                                required={true} placeholder="pitbull"
+                                            />
+                                        </div>
                                 </div>
 
                                 <div className="field">
-                                    <label className="label">Idade</label>
-                                    <div className="control">
-                                        <input className="input"
-                                            type="number"
-                                            required={true}
-                                            placeholder="1"
-                                        />
-                                    </div>
-                                
+                                    <label className="label"
+                                        style={{color:'#777777',}}>
+                                        Idade</label>
+                                        <div className="control">
+                                            <input className="input" type="number"
+                                                required={true} placeholder="1"
+                                            />
+                                        </div>
+                                </div>                              
                                 
                                 <div className="field">
-                                    <label className="label">Sexo</label>
-                                    <div className="control">
-                                    <div className="radio">
-                                        <div className=".testecss">
-                                            <input type="radio" id="sexo" name="sexo" 
-                                            value="Macho" checked/>
-                                            Macho
-                                            <input type="radio" id="sexo" name="sexo" 
-                                            value="Femêa" />
-                                            Femêa                                        </div>
-                                    </div>
+                                    <label className="label"
+                                        style={{color:'#777777',}}>
+                                        Sexo</label>
+                                        <div className="control"
+                                        style={{color:'#777777',}}>
+                                            <div className="radio">
+                                            <label class="radio">
+                                            <input type="radio" id="sexo"
+                                                name="sexo" value="Masculino"
+                                            /> Macho
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" id="sexo"
+                                                name="sexo" value="Feminino"
+                                            /> Fêmea
+                                        </label>                                           
+                                            </div>
+                                        </div>                                
                                 </div>
-                                </div>
-                                </div>
-                                <div style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between'
-                                }}
-                                className="mt-5">
+                                
+                                <div className="mt-5"
+                                        style=
+                                        {{display:'flex',
+                                        justifyContent: 'space-between',}}>
                                     <Link to={"/address"}>
                                         <button className="button is-rounded is-primary-au-market is-outlined">
                                             <span className="icon">
@@ -73,12 +81,12 @@ function Cadastropet(){
                                         </button>
                                     </Link>
 
-                                    <Link to={'/cadastropet'} >
-                                        <button className="button is-rounded is-primary-au-market" onClick={MessageEvent="Pet Cadastro com sucesso"} >
-                                        
-                                            <span>Cadastrar</span>                                         
-                                            <span className="icon"><i className="fa-solid fa-arrow-right" ></i>  </span>
-                                            
+                                    <Link to={"/"} >
+                                        <button className="button is-rounded is-primary-au-market" onClick={MessageEvent="Pet Cadastro com sucesso"}>                                         
+                                            <span className="icon">
+                                                <i className="fa-solid fa-arrow-right" ></i>
+                                            </span>
+                                            <span>Cadastrar</span>                                             
                                         </button>                                      
                                     </Link>
                                 </div>
@@ -86,11 +94,8 @@ function Cadastropet(){
                         </div>
                     </div>
                 </section>
-            </div>
-
-            
+            </div>            
         </>
-
     )
 }
 

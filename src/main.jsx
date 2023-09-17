@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import Menu from "./components/Menu.jsx";
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from 'react-router-dom'
-import Login from "./screens/Login.jsx";
 import 'bulma/css/bulma.css'
+import './index.css'
+import './js/main.js'
+import {createBrowserRouter, RouterProvider,} from 'react-router-dom'
+import Menu from "./components/Menu.jsx";
+import Login from "./screens/Login.jsx";
 import SignUp from "./screens/SignUp.jsx";
 import AboutYou from "./screens/AboutYou.jsx";
 import Address from "./screens/Address.jsx";
@@ -31,17 +29,16 @@ const router = createBrowserRouter([
         element: <Address />
     },
     {
-        path:"/Cadastropet",
-        element: <Cadastropet/>
-
+        path: "/Cadastropet",
+        element: <Cadastropet />
     }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-    <>
-        <Menu></Menu>
-        <RouterProvider router={router}/>
-    </>
-</React.StrictMode>,
+    <React.StrictMode>
+        <>
+            <Menu></Menu>
+            <RouterProvider router={router} />
+        </>
+    </React.StrictMode>,
 )
