@@ -172,3 +172,26 @@ header{
   border-color: transparent; !important;
   color: #fff; !important;
 }
+
+/* Rectangle 14 */
+
+.rectangle{
+	position: relative;
+	width: 90%;
+	height: 200px;
+	left: 20px;
+	top: 3px;
+	background: #d4d4d4;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+ol li {
+	color:#777777;
+		text-align:left;
+		font-size:14px;
+		font-weight:600;
+		margin:16px 18px;
+    list-style-type: decimal;
+	list-style-position: inside;
+}

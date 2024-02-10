@@ -10,6 +10,7 @@ import SignUp from "./screens/SignUp.jsx";
 import AboutYou from "./screens/AboutYou.jsx";
 import Address from "./screens/Address.jsx";
 import Cadastropet from './screens/Cadastropet';
+import Pedido from "./screens/Pedido.jsx";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     {
         path: "/Cadastropet",
         element: <Cadastropet />
+    },
+    {
+        path: "/Pedido",
+        element: <Pedido />
     }
 ])
 
