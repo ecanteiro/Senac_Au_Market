@@ -2,6 +2,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from "react";
 import InputLabel from "../components/InputLabel.jsx";
 import CustomInput from "../components/CustomInput.jsx";
+import API from "../api.js";
 
 function AboutYou() {
 
@@ -25,7 +26,7 @@ function AboutYou() {
     setSexo(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const postUserData = {
       senha: localStorage.getItem('password'),
       email: localStorage.getItem('email'),
@@ -36,25 +37,9 @@ function AboutYou() {
       sexo: localStorage.getItem('sexo')
     };
 
-    try {
-      const response = fetch('http://localhost:8080/usuario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(postUserData),
-      });
-
-      if (response.status !== 200) {
-        throw new Error('Failed to post user data');
-      }
-      const data = response.json();
-      localStorage.setItem('userId', data.insertedId);
-      navigate('/Address');
-
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    const userData = await API.postUsuario(postUserData);
+    localStorage.setItem('userId', userData.insertedId);
+    navigate('/Address');
   };
 
   return (
