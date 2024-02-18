@@ -92,7 +92,6 @@ header{
 	width: 170px;
 	min-height: 100vh;
 	display: block;
-	z-index: 10;
 	background-color: #06B3C4;
 	padding-top: 120px;
 	transition: 0.4s ease-in-out;
