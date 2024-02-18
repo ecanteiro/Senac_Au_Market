@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types';
+import {IMaskInput} from "react-imask";
+import {useRef} from "react";
 
-function CustomInput({label, name, placeholder, value, onChange, type = "text", required = true}) {
+function CustomInput({label, name, placeholder, value, onChange, mask = '', type = "text", required = true}) {
+
+  const ref = useRef(null);
+  const inputRef = useRef(null);
 
   return (
     <>
@@ -12,14 +17,17 @@ function CustomInput({label, name, placeholder, value, onChange, type = "text", 
           {label}
         </label>
         <div className="control">
-          <input
+          <IMaskInput
+            mask={mask}
             className="input"
             name={name}
             type={type}
             placeholder={placeholder}
             value={value}
-            onChange={onChange}
+            onAccept={onChange}
             required={required}
+            ref={ref}
+            inputRef={inputRef}
           />
 
         </div>

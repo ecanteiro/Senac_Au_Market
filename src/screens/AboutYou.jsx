@@ -66,8 +66,9 @@ function AboutYou() {
 
               <CustomInput
                 label="CPF"
+                mask={"000.000.000-00"}
                 name="cpf"
-                type="number"
+                type="text"
                 placeholder="123.456.789-10"
                 value={cpf}
                 onChange={e => setCpf(e.target.value)}
@@ -75,6 +76,7 @@ function AboutYou() {
 
               <CustomInput
                 label="Celular"
+                mask={"(00) 0 0000 0000"}
                 type="tel"
                 value={celular}
                 onChange={e => setCelular(e.target.value)}
@@ -83,6 +85,7 @@ function AboutYou() {
 
               <CustomInput
                 label="Data de Nascimento"
+                mask={"00/00/0000"}
                 placeholder="01/01/2000"
                 name="datanascimento"
                 onChange={e => setDataNascimento(e.target.value)}
