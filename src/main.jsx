@@ -12,35 +12,35 @@ import Address from "./screens/Address.jsx";
 import Cadastropet from './screens/Cadastropet';
 
 const appRoutes = [
-    {
-        path: "/",
-        element: <Login/>
-    },
-    {
-        path: "/sign-up",
-        element: <SignUp/>
-    },
-    {
-        path: "/about-you",
-        element: <AboutYou/>
-    },
-    {
-        path: "/address",
-        element: <Address/>
-    },
-    {
-        path: "/Cadastropet",
-        element: <Cadastropet/>
-    }
+  {
+    path: "/",
+    element: <Login/>
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp/>
+  },
+  {
+    path: "/about-you",
+    element: <AboutYou/>
+  },
+  {
+    path: "/address",
+    element: <Address/>
+  },
+  {
+    path: "/Cadastropet",
+    element: <Cadastropet/>
+  }
 ];
 
 const router = createBrowserRouter(appRoutes);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <>
-            <Menu/>
-            <RouterProvider router={router}/>
-        </>
-    </React.StrictMode>
+  <React.StrictMode>
+    <>
+      <Menu/>
+      <RouterProvider router={router}/>
+    </>
+  </React.StrictMode>
 );
