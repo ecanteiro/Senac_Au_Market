@@ -1,6 +1,16 @@
+import { useState, useEffect } from 'react';
 import {Link} from "react-router-dom";
 
 function SignUp() {
+
+  const [email, setEmail] = useState(localStorage.getItem('email') || '');
+  const [password, setPassword] = useState(localStorage.getItem('password') || '');
+
+  useEffect(() => {
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password);
+  }, [email, password]);
+
   return (
     <>
       <div className="container is-fluid">
@@ -21,15 +31,18 @@ function SignUp() {
                   fontSize:"16px",
                   fontWeight:"600",
                   margin:"16px 80px"}}>Preencha os dados abaixo para se cadastrar no aplicativo.</h2>
+
               <form action="">
                 <div className="field" style={
                   {color:'#777777',}}>
                   <label className="label" style={
                     {color:'#777777',}}>
-                                        Insira seu e-mail:</label>
+                    Insira seu e-mail:</label>
                   <div className="control">
                     <input className="input"
                       type="email" placeholder="aumarket@seuemail.com"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                       required={true}/>
 
                     <h3 style={
@@ -42,11 +55,15 @@ function SignUp() {
                 <div className="field" style={
                   {color:'#777777',}}>
                   <label className="label" style={
-                    {color:'#777777',}}>
+                    {color:'#777777'}}>
                                         Insira uma senha:</label>
                   <div className="control">
-                    <input className="input" type="password"
-                      required={true} name="password"
+                    <input className="input"
+                      type="password"
+                      required={true}
+                      name="password"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
                       placeholder="***********"/>
 
                     <h4 style={

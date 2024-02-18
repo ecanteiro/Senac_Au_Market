@@ -55,7 +55,7 @@ header{
 	position: relative;
 	display: block;
 	width: 35px;
-	cursor: pointer;	
+	cursor: pointer;
 	appearance: none;
 	background: none;
 	outline: none;
@@ -117,7 +117,7 @@ header{
 	background-color: #06B3C4;
   color: #FFF;
   text-decoration: none;
-  transition: background-color 0.3s ease-in-out; 
+  transition: background-color 0.3s ease-in-out;
 	text-decoration: none;
 }
 
