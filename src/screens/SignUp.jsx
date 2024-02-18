@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import {Link} from "react-router-dom";
+import CustomInput from "../components/CustomInput.jsx";
 
 function SignUp() {
 
@@ -33,49 +34,36 @@ function SignUp() {
                   margin:"16px 80px"}}>Preencha os dados abaixo para se cadastrar no aplicativo.</h2>
 
               <form action="">
-                <div className="field" style={
-                  {color:'#777777',}}>
-                  <label className="label" style={
-                    {color:'#777777',}}>
-                    Insira seu e-mail:</label>
-                  <div className="control">
-                    <input className="input"
-                      type="email" placeholder="aumarket@seuemail.com"
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                      required={true}/>
+                <CustomInput
+                  label="Insira seu e-mail"
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
 
-                    <h3 style={
-                      {fontSize:"13px",}}>A confirmação e acompanhamento do seu pedido
-                                                serão enviados ao e-mail cadastrado.
-                    </h3>
-                  </div>
-                </div>
+                <h4 style={
+                  {fontSize: "13px",}}>A confirmação e acompanhamento do seu pedido
+                  serão enviados ao e-mail cadastrado.
+                </h4>
 
-                <div className="field" style={
-                  {color:'#777777',}}>
-                  <label className="label" style={
-                    {color:'#777777'}}>
-                                        Insira uma senha:</label>
-                  <div className="control">
-                    <input className="input"
-                      type="password"
-                      required={true}
-                      name="password"
-                      value={password}
-                      onChange={e => setPassword(e.target.value)}
-                      placeholder="***********"/>
+                <CustomInput
+                  label="Insira uma senha:"
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                />
 
-                    <h4 style={
-                      {fontSize:"13px",}}>Use oito ou mais caracteres com uma combinação de letras,
-                                                números e símbolos para uma senha mais segura.</h4>
-                  </div>
-                </div>
+                <h4 style={
+                  {fontSize: "13px",}}>Use oito ou mais caracteres com uma combinação de letras,
+                  números e símbolos para uma senha mais segura.</h4>
 
                 <div className="mt-5"
-                  style={{display:'flex',
-                    justifyContent:'space-between',
-                    padding:"16px 0",}}>
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    padding: "16px 0",
+                  }}>
                   <Link to={'/'}>
                     <button className="button is-rounded is-primary-au-market is-outlined">
                       <span className="icon">

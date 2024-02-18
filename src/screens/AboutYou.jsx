@@ -1,5 +1,7 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from "react";
+import InputLabel from "../components/InputLabel.jsx";
+import CustomInput from "../components/CustomInput.jsx";
 
 function AboutYou() {
 
@@ -46,7 +48,8 @@ function AboutYou() {
       if (response.status !== 200) {
         throw new Error('Failed to post user data');
       }
-
+      const data = response.json();
+      localStorage.setItem('userId', data.insertedId);
       navigate('/Address');
 
     } catch (error) {
@@ -68,58 +71,40 @@ function AboutYou() {
                     fontWeight:"600"}}>
                                     Sobre você:</h1>
 
-              <div className="field" >
-                <label className="label" style={
-                  {color:'#777777',}}>Nome completo</label>
-                <div className="control">
-                  <input className="input" type="text"
-                    placeholder="Maria da Silva" required={true}
-                    value={nome}
-                    onChange={e => setNome(e.target.value)}
-                  />
-                </div>
-              </div>
+              <CustomInput
+                label="Nome completo"
+                name="nome"
+                placeholder="Maria da Silva"
+                value={nome}
+                onChange={e => setNome(e.target.value)}
+              />
+
+              <CustomInput
+                label="CPF"
+                name="cpf"
+                type="number"
+                placeholder="123.456.789-10"
+                value={cpf}
+                onChange={e => setCpf(e.target.value)}
+              />
+
+              <CustomInput
+                label="Celular"
+                type="tel"
+                value={celular}
+                onChange={e => setCelular(e.target.value)}
+                placeholder={"(11) 91234-5678"}
+              />
+
+              <CustomInput
+                label="Data de Nascimento"
+                placeholder="01/01/2000"
+                name="datanascimento"
+                onChange={e => setDataNascimento(e.target.value)}
+              />
 
               <div className="field">
-                <label className="label" style={
-                  {color:'#777777',}}>CPF</label>
-                <div className="control">
-                  <input className="input" type="number"
-                    required={true} placeholder="123.456.789-10"
-                    value={cpf}
-                    onChange={e => setCpf(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="field">
-                <label className="label" style={
-                  {color:'#777777',}}>Celular</label>
-                <div className="control">
-                  <input className="input" type="tel"
-                    value={celular}
-                    onChange={e => setCelular(e.target.value)}
-                    required={true} placeholder="(11) 91234-5678"
-                  />
-                </div>
-              </div>
-
-              <div className="field">
-                <label className="label" style={
-                  {color:'#777777',}}>Data de Nascimento</label>
-                <div className="control">
-                  <input className="input" type="text"
-                    required={true} placeholder="01/01/2000"
-                    value={dataNascimento}
-                    onChange={e => setDataNascimento(e.target.value)}
-                  />
-                </div>
-
-              </div>
-
-              <div className="field">
-                <label className="label" style={
-                  {color:'#777777',}}>Sexo</label>
+                <InputLabel labelTitle="Sexo"/>
                 <div className="control" style={
                   {color:'#777777',}}>
                   <label className="radio" >
@@ -135,13 +120,9 @@ function AboutYou() {
                 </div>
               </div>
 
-              <div className="control">
-                <div className="field"></div>
-              </div>
-
               <div className="mt-5"
                 style={{display:'flex',
-                  justifyContent:'space-between',}}>
+                  justifyContent:'space-between'}}>
                 <Link to={'/sign-up'}>
                   <button className="button is-rounded is-primary-au-market is-outlined">
                     <span className="icon">
