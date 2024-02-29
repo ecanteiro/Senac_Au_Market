@@ -53,7 +53,7 @@ function Pedido() {
                                         Ração úmida dog NaturalFood
                                         </li>
                                         <li>
-                                            asdfa
+                                            teste
                                         </li>
                                     </ol>
 
