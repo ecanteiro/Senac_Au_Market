@@ -7,9 +7,11 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Menu from "./components/Menu.jsx";
 import Login from "./screens/Login.jsx";
 import SignUp from "./screens/SignUp.jsx";
+import SignUpEmail from "./screens/SignUpEmail.jsx";
 import AboutYou from "./screens/AboutYou.jsx";
 import Address from "./screens/Address.jsx";
 import Cadastropet from './screens/Cadastropet';
+import SignUpTel from './screens/SignUpTel.jsx'
 
 const appRoutes = [
   {
@@ -19,6 +21,14 @@ const appRoutes = [
   {
     path: "/sign-up",
     element: <SignUp/>
+  },
+  {
+    path: "/sign-up-email",
+    element: <SignUpEmail />
+  },
+  {
+    path: "/sign-up-tel",
+    element: <SignUpTel />
   },
   {
     path: "/about-you",

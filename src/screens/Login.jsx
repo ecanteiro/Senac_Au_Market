@@ -16,23 +16,25 @@ function Login() {
 
             <div className="columns is-mobile">
               <div className="column">
-                <button className="button is-primary-au-market is-fullwidth is-rounded is-outlined">
-                  <span className="icon">
-                    <i className="fa-solid fa-phone"></i>
-                  </span>
-
-                  <span>Telefone</span>
-                </button>
+                <Link to={'/sign-up-tel'}>
+                  <button className="button is-primary-au-market is-fullwidth is-rounded is-outlined">
+                    <span className="icon">
+                      <i className="fa-solid fa-phone"></i>
+                    </span>
+                    <span>Telefone</span>
+                  </button>
+                </Link>
               </div>
 
               <div className="column">
-                <button className="button is-primary-au-market is-outlined is-fullwidth is-rounded">
-                  <span className="icon">
-                    <i className="fa-solid fa-envelope-open"></i>
-                  </span>
-
-                  <span>E-mail</span>
-                </button>
+                <Link to={'/sign-up-email'}>
+                  <button className="button is-primary-au-market is-outlined is-fullwidth is-rounded">
+                    <span className="icon">
+                      <i className="fa-solid fa-envelope-open"></i>
+                    </span>
+                    <span>E-mail</span>
+                  </button>
+                </Link>
               </div>
             </div>
 
