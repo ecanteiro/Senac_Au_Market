@@ -13,6 +13,7 @@ import Address from "./screens/Address.jsx";
 import Cadastropet from './screens/Cadastropet';
 import SignUpTel from './screens/SignUpTel.jsx'
 import Pedido from "./screens/Pedido.jsx";
+import Payment from "./screens/Payment.jsx";
 
 const appRoutes = [
   {
@@ -46,6 +47,10 @@ const appRoutes = [
   {
     path: "/Pedido",
     element: <Pedido />
+  },
+  {
+    path: "/Payment",
+    element: <Payment />
   }
 ];
 
