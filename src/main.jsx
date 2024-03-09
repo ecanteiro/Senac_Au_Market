@@ -12,6 +12,7 @@ import AboutYou from "./screens/AboutYou.jsx";
 import Address from "./screens/Address.jsx";
 import Cadastropet from './screens/Cadastropet';
 import SignUpTel from './screens/SignUpTel.jsx'
+import Pedido from "./screens/Pedido.jsx";
 
 const appRoutes = [
   {
@@ -41,6 +42,10 @@ const appRoutes = [
   {
     path: "/Cadastropet",
     element: <Cadastropet/>
+  },
+  {
+    path: "/Pedido",
+    element: <Pedido />
   }
 ];
 
