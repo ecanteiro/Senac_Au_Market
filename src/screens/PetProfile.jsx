@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Cadastropet() {
+function PetProfile() {
   return(
     <>
       <div className="container is-fluid">
@@ -82,7 +82,7 @@ function Cadastropet() {
                   </Link>
 
                   <Link to={"/"} >
-                    <button className="button is-rounded is-primary-au-market" onClick={MessageEvent="Pet Cadastro com sucesso"}>
+                    <button className="button is-rounded is-primary-au-market">
                       <span className="icon">
                         <i className="fa-solid fa-arrow-right" ></i>
                       </span>
@@ -99,4 +99,4 @@ function Cadastropet() {
   )
 }
 
-export default Cadastropet
+export default PetProfile

@@ -103,7 +103,7 @@ function Address() {
                     </button>
                   </Link>
 
-                  <Link to={'/Cadastropet'}>
+                  <Link to={'/pet-profile'}>
                     <button className="button is-rounded is-primary-au-market">
                       <span>Avançar</span>
                       <span className="icon">
