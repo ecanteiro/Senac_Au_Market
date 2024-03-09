@@ -10,10 +10,11 @@ import SignUp from "./screens/SignUp.jsx";
 import SignUpEmail from "./screens/SignUpEmail.jsx";
 import AboutYou from "./screens/AboutYou.jsx";
 import Address from "./screens/Address.jsx";
-import Cadastropet from './screens/Cadastropet';
+import PetProfile from './screens/PetProfile.jsx';
 import SignUpTel from './screens/SignUpTel.jsx'
-import Pedido from "./screens/Pedido.jsx";
+import PurchaseOrder from "./screens/PurchaseOrder.jsx";
 import Payment from "./screens/Payment.jsx";
+import ShoppingCart from "./screens/ShoppingCart.jsx";
 
 const appRoutes = [
   {
@@ -41,16 +42,20 @@ const appRoutes = [
     element: <Address/>
   },
   {
-    path: "/Cadastropet",
-    element: <Cadastropet/>
+    path: "/pet-profile",
+    element: <PetProfile/>
   },
   {
-    path: "/Pedido",
-    element: <Pedido />
+    path: "/order",
+    element: <PurchaseOrder />
   },
   {
     path: "/Payment",
     element: <Payment />
+  },
+  {
+    path: "/shopping-cart",
+    element: <ShoppingCart/>
   }
 ];
 
