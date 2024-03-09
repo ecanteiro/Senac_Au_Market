@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'bulma/css/bulma.css'
-import './index.css'
 import './js/main.js'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Menu from "./components/Menu.jsx";
@@ -64,7 +63,6 @@ const router = createBrowserRouter(appRoutes);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <>
-      <Menu/>
       <RouterProvider router={router}/>
     </>
   </React.StrictMode>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css';
 import pixQRCodeImage from '../assets/qrcodepix.png';
 
 function Payment() {
