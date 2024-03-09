@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import CustomInput from "../components/CustomInput.jsx";
 
 function SignUp() {
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
-  const [password, setPassword] = useState(
-    localStorage.getItem("password") || ""
-  );
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const headerStyle = {
     color: "#06B3C4",

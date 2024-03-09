@@ -8,11 +8,11 @@ function AboutYou() {
 
   let navigate = useNavigate();
 
-  const [nome, setNome] = useState(localStorage.getItem('nome') || '');
-  const [cpf, setCpf] = useState(localStorage.getItem('cpf') || '');
-  const [celular, setCelular] = useState(localStorage.getItem('celular') || '');
-  const [dataNascimento, setDataNascimento] = useState(localStorage.getItem('data_nascimento') || '');
-  const [sexo, setSexo] = useState(localStorage.getItem('sexo') || '');
+  const [nome, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [celular, setCelular] = useState('');
+  const [dataNascimento, setDataNascimento] = useState( '');
+  const [sexo, setSexo] = useState('');
 
   useEffect(() => {
     localStorage.setItem('nome', nome);

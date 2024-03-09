@@ -16,6 +16,8 @@ import PurchaseOrder from "./screens/PurchaseOrder.jsx";
 import Payment from "./screens/Payment.jsx";
 import ShoppingCart from "./screens/ShoppingCart.jsx";
 
+// localStorage.clear();
+
 const appRoutes = [
   {
     path: "/",

@@ -24,12 +24,12 @@ function CustomInput({label, name, placeholder, value, onChange, mask = '', type
             type={type}
             placeholder={placeholder}
             value={value}
+            onChange={onChange}
             onAccept={onChange}
             required={required}
             ref={ref}
             inputRef={inputRef}
           />
-
         </div>
       </div>
     </>
@@ -37,13 +37,14 @@ function CustomInput({label, name, placeholder, value, onChange, mask = '', type
 }
 
 CustomInput.propTypes = {
-  label: PropTypes.label,
+  label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
   type: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  mask: PropTypes.string,
 };
 
 export default CustomInput;
