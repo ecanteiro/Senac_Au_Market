@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CustomInput from "../components/CustomInput.jsx";
 
-function SignUp() {
+function SignUpTel() {
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [password, setPassword] = useState(
     localStorage.getItem("password") || ""
@@ -31,11 +31,9 @@ function SignUp() {
     padding: "16px 0",
   };
 
-  const headerText = "Crie sua conta";
-  const subtitleText = "Preencha os dados abaixo para se cadastrar no aplicativo.";
-  const emailNote = "A confirmação e acompanhamento do seu pedido serão enviados ao e-mail cadastrado.";
-  const passwordNote = "Use oito ou mais caracteres com uma combinação de letras, números e símbolos para uma senha mais segura.";
-
+  const headerText = "Acesse sua conta";
+  const subtitleText = "Preencha os campos abaixo para efetuar o login.";
+    
   useEffect(() => {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
@@ -53,20 +51,20 @@ function SignUp() {
               <h2 style={subtitleStyle}>{subtitleText}</h2>
               <form action="">
                 <CustomInput
-                  label="Insira seu e-mail"
+                  label="Insira seu telefone"
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 />
-                <h4 style={noteStyle}>{emailNote}</h4>
+                
                 <CustomInput
-                  label="Insira uma senha:"
+                  label="Insira sua senha:"
                   type="password"
                   name="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
-                <h4 style={noteStyle}>{passwordNote}</h4>
+                
                 <div className="mt-5" style={actionButtonContainerStyle}>
                   <Link to={"/"}>
                     <button className="button is-rounded is-primary-au-market is-outlined">
@@ -76,7 +74,7 @@ function SignUp() {
                       <span>Voltar</span>
                     </button>
                   </Link>
-                  <Link to={"/about-you"}>
+                  <Link to={"/"}>
                     <button className="button is-rounded is-primary-au-market">
                       <span className="icon">
                         <i className="fa-solid fa-arrow-right"></i>
@@ -94,4 +92,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUpTel;
