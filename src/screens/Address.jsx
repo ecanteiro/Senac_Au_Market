@@ -2,6 +2,8 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import CustomInput from "../components/CustomInput.jsx";
 import API from "../api.js";
+import RegistrationHeader from "../components/RegistrationHeader.jsx";
+import {CommonContainer} from "../components/CommonContainer.jsx";
 
 function Address() {
 
@@ -86,7 +88,6 @@ function Address() {
 
     try {
       const addressData = await API.postEndereco(postAddressData);
-      console.log(addressData);
       if (addressData) {
         navigate("/pet-profile");
       } else {
@@ -100,58 +101,46 @@ function Address() {
 
   return (
     <>
-      <div className="container is-fluid">
-        <section className="mt-5">
-          <div className="columns">
-            <div className="column">
-              <h1 className="subtitle"
-                style={{
-                  color: '#06B3C4',
-                  textAlign: "center",
-                  fontSize: "20px",
-                  fontWeight: "600"
-                }}>
-                                Seu endereço:</h1>
+      <CommonContainer>
+        <RegistrationHeader
+          title={"Seu endereço"}
+        />
 
-              <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
 
-                {/* Cria os CustomInput com base nos valores inseridos em formFields */}
-                {formFields.map((field) => (
-                  <CustomInput
-                    key={field.name}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    value={field.value}
-                    onChange={e => field.setValue(e.target.value)}
-                    {...(field.mask && {mask: field.mask})}
-                    required={true}
-                  />
-                ))}
+          {/* Cria os CustomInput com base nos valores inseridos em formFields */}
+          {formFields.map((field) => (
+            <CustomInput
+              key={field.name}
+              label={field.label}
+              placeholder={field.placeholder}
+              value={field.value}
+              onChange={e => field.setValue(e.target.value)}
+              {...(field.mask && {mask: field.mask})}
+              required={true}
+            />
+          ))}
 
-                <div className="mt-5" style={{display: 'flex', justifyContent: 'space-between'}}>
+          <div className="mt-5" style={{display: 'flex', justifyContent: 'space-between'}}>
 
-                  <Link to={'/about-you'}>
-                    <button className="button is-rounded is-primary-au-market is-outlined">
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-left"></i>
-                      </span>
-                      <span>Voltar</span>
-                    </button>
-                  </Link>
+            <Link to={'/about-you'}>
+              <button className="button is-rounded is-primary-au-market is-outlined">
+                <span className="icon">
+                  <i className="fa-solid fa-arrow-left"></i>
+                </span>
+                <span>Voltar</span>
+              </button>
+            </Link>
 
-                  <button type={"submit"}
-                    className="button is-rounded is-primary-au-market">
-                    <span>Avançar</span>
-                    <span className="icon">
-                      <i className="fa-solid fa-arrow-right"></i></span>
-                  </button>
-                </div>
-
-              </form>
-            </div>
+            <button type={"submit"}
+              className="button is-rounded is-primary-au-market">
+              <span>Avançar</span>
+              <span className="icon">
+                <i className="fa-solid fa-arrow-right"></i></span>
+            </button>
           </div>
-        </section>
-      </div>
+        </form>
+      </CommonContainer>
     </>
   )
 }
