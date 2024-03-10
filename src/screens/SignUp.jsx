@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CustomInput from "../components/CustomInput.jsx";
 
 function SignUp() {
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
-  const [password, setPassword] = useState(
-    localStorage.getItem("password") || ""
-  );
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const headerStyle = {
     color: "#06B3C4",
@@ -36,10 +35,19 @@ function SignUp() {
   const emailNote = "A confirmação e acompanhamento do seu pedido serão enviados ao e-mail cadastrado.";
   const passwordNote = "Use oito ou mais caracteres com uma combinação de letras, números e símbolos para uma senha mais segura.";
 
+  const navigate  = useNavigate();
+
+  localStorage.clear();
+
   useEffect(() => {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
   }, [email, password]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/about-you");
+  }
 
   return (
     <>
@@ -51,12 +59,13 @@ function SignUp() {
                 {headerText}
               </h1>
               <h2 style={subtitleStyle}>{subtitleText}</h2>
-              <form action="">
+              <form onSubmit={handleSubmit}>
                 <CustomInput
                   label="Insira seu e-mail"
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
+                  required={true}
                 />
                 <h4 style={noteStyle}>{emailNote}</h4>
                 <CustomInput
@@ -65,6 +74,7 @@ function SignUp() {
                   name="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
+                  required={true}
                 />
                 <h4 style={noteStyle}>{passwordNote}</h4>
                 <div className="mt-5" style={actionButtonContainerStyle}>
@@ -76,14 +86,12 @@ function SignUp() {
                       <span>Voltar</span>
                     </button>
                   </Link>
-                  <Link to={"/about-you"}>
-                    <button className="button is-rounded is-primary-au-market">
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-right"></i>
-                      </span>
-                      <span>Avançar</span>
-                    </button>
-                  </Link>
+                  <button type="submit" className="button is-rounded is-primary-au-market">
+                    <span className="icon">
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </span>
+                    <span>Avançar</span>
+                  </button>
                 </div>
               </form>
             </div>
