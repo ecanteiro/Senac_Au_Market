@@ -88,7 +88,6 @@ function Address() {
 
     try {
       const addressData = await API.postEndereco(postAddressData);
-      console.log(addressData);
       if (addressData) {
         navigate("/pet-profile");
       } else {

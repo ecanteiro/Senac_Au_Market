@@ -29,7 +29,6 @@ function PetProfile() {
 
     try {
       const petData = await API.postPet(postPetData);
-      console.log(petData);
       if (petData) {
         navigate("/");
       } else {
