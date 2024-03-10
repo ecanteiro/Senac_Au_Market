@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import InputLabel from "../components/InputLabel.jsx";
 import CustomInput from "../components/CustomInput.jsx";
 import API from "../api.js";
+import RegistrationHeader from "../components/RegistrationHeader.jsx";
 
 function AboutYou() {
 
@@ -58,15 +59,9 @@ function AboutYou() {
         <section className="mt-5">
           <div className="columns">
             <div className="column">
-              <h1 className="subtitle"
-                style={
-                  {
-                    color: '#06B3C4',
-                    textAlign: "center",
-                    fontSize: "20px",
-                    fontWeight: "600"
-                  }}>
-                                Sobre você:</h1>
+              <RegistrationHeader
+                title={"Sobre você"}
+              />
 
               <form onSubmit={handleSubmit}>
 

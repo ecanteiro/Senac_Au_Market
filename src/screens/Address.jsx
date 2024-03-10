@@ -2,6 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import CustomInput from "../components/CustomInput.jsx";
 import API from "../api.js";
+import RegistrationHeader from "../components/RegistrationHeader.jsx";
 
 function Address() {
 
@@ -104,14 +105,9 @@ function Address() {
         <section className="mt-5">
           <div className="columns">
             <div className="column">
-              <h1 className="subtitle"
-                style={{
-                  color: '#06B3C4',
-                  textAlign: "center",
-                  fontSize: "20px",
-                  fontWeight: "600"
-                }}>
-                                Seu endereço:</h1>
+              <RegistrationHeader
+                title={"Seu endereço"}
+              />
 
               <form onSubmit={handleSubmit}>
 
