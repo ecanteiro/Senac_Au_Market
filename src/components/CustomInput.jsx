@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {IMaskInput} from "react-imask";
 import {useRef} from "react";
+import InputLabel from "./InputLabel.jsx";
 
 function CustomInput({label, name, placeholder, value, onChange, mask = '', type = "text", required = true}) {
 
@@ -10,12 +11,7 @@ function CustomInput({label, name, placeholder, value, onChange, mask = '', type
   return (
     <>
       <div className="field">
-        <label className="label"
-          style={
-            {color: '#777777'}
-          }>
-          {label}
-        </label>
+        <InputLabel labelTitle={label}/>
         <div className="control">
           <IMaskInput
             mask={mask}
