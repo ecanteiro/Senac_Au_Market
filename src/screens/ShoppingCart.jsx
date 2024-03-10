@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 function ShoppingCart() {
+  const handleButtonClick = () => {
+    window.alert('Compra realizada com sucesso!');
+  };
   return (
     <>
       <div className="container is-fluid">
@@ -40,7 +43,7 @@ function ShoppingCart() {
                         </figure>
                       </div>
                       <div className="media-content ml-3">
-                        <p className="is-size-4">Nome do Produto</p>
+                        <p className="is-size-4">Ração úmida dog NaturalFood - Pacote 200g(Carne, Frango ou Suíno)</p>
                       </div>
                     </div>
                   </Link>
@@ -78,13 +81,15 @@ function ShoppingCart() {
                   padding: '10px',
                   borderTop: '1px solid #ccc',
                 }} className="mt-5">
+                  <Link to={'/Payment'}>
                   <div className="field">
                     <div className="control">
                       <button className="button is-rounded is-success">
-                                                Pagamento!!!
+                                                Pagamento
                       </button>
                     </div>
                   </div>
+                  </Link>
                 </div>
 
                 {/* Botões no rodapé da página */}
@@ -99,7 +104,7 @@ function ShoppingCart() {
                   padding: '10px',
                   borderTop: '1px solid #ccc',
                 }} className="mt-5">
-                  <Link to={'/'}>
+                  <Link to={'/order'}>
                     <button className="button is-rounded is-primary-au-market is-outlined">
                       <span className="icon">
                         <i className="fa-solid fa-arrow-left"></i>
@@ -108,12 +113,16 @@ function ShoppingCart() {
                     </button>
                   </Link>
 
-                  <Link to={'/'}>
-                    <button className="button is-rounded is-primary-au-market">
-                      <span>Avançar</span>
-                      <span className="icon"><i className="fa-solid fa-arrow-right"></i></span>
-                    </button>
-                  </Link>
+                  <div className="field">
+                    <div className="control">
+                      <button className="button is-rounded is-primary" onClick={handleButtonClick}>
+                        <span className="icon">
+                          <i className="fa-solid fa-arrow-right"></i>
+                        </span>
+                        <span>Avançar</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>

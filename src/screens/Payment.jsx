@@ -101,7 +101,7 @@ function Payment() {
       <div className="columns">
         <div className="column">
           <p className='infoSubtitle'>Precisa mudar alguma informação?</p>
-          <Link to={'/cart'}>
+          <Link to={'/shopping-cart'}>
             <button className="button is-fullwidth is-rounded is-primary-au-market">
               <span className="icon">
                 <i className="fa-solid fa-arrow-left"></i>

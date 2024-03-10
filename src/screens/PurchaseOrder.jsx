@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 function PurchaseOrder() {
   return (
     <>
@@ -51,12 +51,15 @@ function PurchaseOrder() {
               <li>
                                         Ração úmida dog NaturalFood
               </li>
-              <li>
-                                            teste
-              </li>
             </ol>
-
-
+            <Link to={"/shopping-cart"}>
+              <button className="button is-rounded is-primary-au-market">
+                <span className="icon">
+                  <i className="fa-solid fa-arrow-right"></i>
+                </span>
+                <span>Avançar</span>
+              </button>
+            </Link>
           </div>
 
         </section>

@@ -70,7 +70,7 @@ function SignUpTel() {
                       <span>Voltar</span>
                     </button>
                   </Link>
-                  <Link to={"/"}>
+                  <Link to={"/order"}>
                     <button className="button is-rounded is-primary-au-market">
                       <span className="icon">
                         <i className="fa-solid fa-arrow-right"></i>
