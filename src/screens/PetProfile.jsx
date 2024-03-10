@@ -123,7 +123,7 @@ function PetProfile() {
 
             <button className="button is-rounded is-primary-au-market">
               <span className="icon">
-                <i className="fa-solid"></i>
+                <i className="fa-solid fa-dog"></i>
               </span>
               <span>Finalizar cadastro</span>
             </button>
