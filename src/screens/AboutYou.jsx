@@ -11,7 +11,7 @@ function AboutYou() {
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState('');
   const [celular, setCelular] = useState('');
-  const [dataNascimento, setDataNascimento] = useState( '');
+  const [dataNascimento, setDataNascimento] = useState('');
   const [sexo, setSexo] = useState('');
 
   useEffect(() => {
@@ -40,14 +40,8 @@ function AboutYou() {
 
     try {
       const userData = await API.postUsuario(postUserData);
-
       if (userData && userData.id) {
-        console.info("userdata!!");
-        console.log(userData);
         localStorage.setItem('userId', userData.id);
-        alert("Usuário inserido! ID: " + userData.id);
-
-        // The navigation is conditioned to successful API request
         navigate("/address");
       } else {
         alert("Error: Couldn't create the user.");
@@ -56,22 +50,23 @@ function AboutYou() {
       alert("Error: The request failed, check your console for more info.");
       console.error("Error in handleSubmit API call:", error);
     }
-
   };
 
   return (
     <>
-      <div className="container is-fluid" >
+      <div className="container is-fluid">
         <section className="mt-5">
           <div className="columns">
             <div className="column">
               <h1 className="subtitle"
                 style={
-                  {color:'#06B3C4',
-                    textAlign:"center",
-                    fontSize:"20px",
-                    fontWeight:"600"}}>
-                                    Sobre você:</h1>
+                  {
+                    color: '#06B3C4',
+                    textAlign: "center",
+                    fontSize: "20px",
+                    fontWeight: "600"
+                  }}>
+                                Sobre você:</h1>
 
               <form onSubmit={handleSubmit}>
 
@@ -113,23 +108,25 @@ function AboutYou() {
                 <div className="field">
                   <InputLabel labelTitle="Sexo"/>
                   <div className="control" style={
-                    {color:'#777777',}}>
-                    <label className="radio" >
+                    {color: '#777777',}}>
+                    <label className="radio">
                       <input type="radio" id="sexo"
                         name="sexo" value="M"
-                        checked={sexo === 'M'} onChange={handleSexoChange} /> Masculino
+                        checked={sexo === 'M'} onChange={handleSexoChange}/> Masculino
                     </label>
                     <label className="radio">
                       <input type="radio" id="sexo"
                         name="sexo" value="F"
-                        checked={sexo === 'F'} onChange={handleSexoChange} /> Feminino
+                        checked={sexo === 'F'} onChange={handleSexoChange}/> Feminino
                     </label>
                   </div>
                 </div>
 
                 <div className="mt-5"
-                  style={{display:'flex',
-                    justifyContent:'space-between'}}>
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                  }}>
 
                   <Link to={'/sign-up'}>
                     <button className="button is-rounded is-primary-au-market is-outlined">
