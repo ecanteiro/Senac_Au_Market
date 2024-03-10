@@ -1,6 +1,55 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useState} from "react";
+import CustomInput from "../components/CustomInput.jsx";
+import API from "../api.js";
 
 function Address() {
+
+  const [cep, setCep] = useState("");
+  const [rua, setRua] = useState("");
+  const [complemento, setComplemento] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [estado, setEstado] = useState("");
+  const [numero, setNumero] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const postAddressData = {
+      id_usuario: localStorage.getItem('userId'),
+      cep: cep,
+      rua: rua,
+      complemento: complemento,
+      bairro: bairro,
+      cidade: cidade,
+      estado: estado,
+      numero: numero,
+    }
+
+
+    try {
+      const addressData = await API.postEndereco(postAddressData);
+
+
+      if (addressData && addressData.id) {
+        console.log(addressData);
+
+        alert("Endereço inserido! ID: " + addressData.id);
+
+        // The navigation is conditioned to successful API request
+        navigate("/pet-profile");
+      } else {
+        alert("Error: Couldn't create the address.");
+      }
+    } catch (error) {
+      alert("Error: The request failed, check your console for more info.");
+      console.error("Error in handleSubmit API call:", error);
+    }
+
+  }
+
   return (
     <>
       <div className="container is-fluid">
@@ -14,86 +63,76 @@ function Address() {
                   fontSize: "20px",
                   fontWeight: "600"
                 }}>
-                                Seu endereço:</h1>
+              Seu endereço:</h1>
 
-              <form action="">
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>CEP:</label>
-                  <div className="control">
-                    <input className="input" type="text"
-                      placeholder="01310-930" required={true}
-                    />
-                  </div>
-                </div>
+              <form onSubmit={handleSubmit}>
 
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>Rua:</label>
-                  <div className="control">
-                    <input className="input" type="string"
-                      required={true} name="password"
-                      placeholder="Av. Paulista"
-                    />
-                  </div>
-                </div>
+                <CustomInput
+                  label="CEP"
+                  placeholder="01310-930"
+                  mask="00000-000"
+                  required={true}
+                  value={cep}
+                  onChange={e => setCep(e.target.value)}
+                />
 
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>Número:</label>
-                  <div className="control">
-                    <input className="input" type="number"
-                      required={true} name="password"
-                      placeholder="1000"
-                    />
-                  </div>
-                </div>
+                <CustomInput
+                  label="Rua"
+                  name="rua"
+                  placeholder="Av Paulista"
+                  required={true}
+                  value={rua}
+                  onChange={e => setRua(e.target.value)}
+                />
 
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>Complemento:</label>
-                  <div className="control">
-                    <input className="input" type="string"
-                      required={true} name="password"
-                      placeholder="Casa"
-                    />
-                  </div>
-                </div>
+                <CustomInput
+                  label="Número"
+                  name="numero"
+                  placeholder="1000"
+                  required={true}
+                  value={numero}
+                  onChange={e => setNumero(e.target.value)}
+                />
 
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>Estado:</label>
-                  <div className="control">
-                    <input className="input" type="password"
-                      required={true} name="password"
-                      placeholder="Selecione..."
-                    />
-                  </div>
-                </div>
+                <CustomInput
+                  label="Complemento"
+                  name="complemento"
+                  placeholder="Casa"
+                  required={true}
+                  value={complemento}
+                  onChange={e => setComplemento(e.target.value)}
+                />
 
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>Cidade:</label>
-                  <div className="control">
-                    <input className="input" type="password"
-                      required={true} name="password"
-                      placeholder="São Paulo"
-                    />
-                  </div>
-                </div>
+                <CustomInput
+                  label="Estado"
+                  name="estado"
+                  placeholder="SP"
+                  required={true}
+                  value={estado}
+                  mask={"aa"}
+                  onChange={e => setEstado(e.target.value)}
+                />
 
-                <div className="field">
-                  <label className="label" style={
-                    {color: '#777777',}}>Bairro:</label>
-                  <div className="control">
-                    <input className="input" type="password"
-                      required={true} name="password"
-                      placeholder="Higienópolis"
-                    />
-                  </div>
-                </div>
+                <CustomInput
+                  label="Cidade"
+                  name="cidade"
+                  placeholder={"São Paulo"}
+                  required={true}
+                  value={cidade}
+                  onChange={e => setCidade(e.target.value)}
+                />
+
+                <CustomInput
+                  label={"Bairro"}
+                  name={"bairro"}
+                  placeholder={"Higienópolis"}
+                  required={true}
+                  value={bairro}
+                  onChange={e => setBairro(e.target.value)}
+                />
 
                 <div className="mt-5" style={{display: 'flex', justifyContent: 'space-between'}}>
+
                   <Link to={'/about-you'}>
                     <button className="button is-rounded is-primary-au-market is-outlined">
                       <span className="icon">
@@ -103,14 +142,14 @@ function Address() {
                     </button>
                   </Link>
 
-                  <Link to={'/pet-profile'}>
-                    <button className="button is-rounded is-primary-au-market">
-                      <span>Avançar</span>
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-right"></i></span>
-                    </button>
-                  </Link>
+                  <button type={"submit"}
+                    className="button is-rounded is-primary-au-market">
+                    <span>Avançar</span>
+                    <span className="icon">
+                      <i className="fa-solid fa-arrow-right"></i></span>
+                  </button>
                 </div>
+
               </form>
             </div>
           </div>
