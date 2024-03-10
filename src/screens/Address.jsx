@@ -15,30 +15,79 @@ function Address() {
 
   const navigate = useNavigate();
 
+  const createAddressData = () => ({
+    id_usuario: localStorage.getItem('userId'),
+    cep: cep,
+    rua: rua,
+    complemento: complemento,
+    bairro: bairro,
+    cidade: cidade,
+    estado: estado,
+    numero: numero,
+  });
+
+  const formFields = [
+    {
+      name: 'cep',
+      label: 'CEP',
+      placeholder: '01310-930',
+      mask: '00000-000',
+      value: cep,
+      setValue: setCep,
+    },
+    {
+      name: 'rua',
+      label: 'Rua',
+      placeholder: 'Av Paulista',
+      value: rua,
+      setValue: setRua,
+    },
+    {
+      name: 'numero',
+      label: 'Número',
+      placeholder: '1000',
+      value: numero,
+      setValue: setNumero,
+    },
+    {
+      name: 'complemento',
+      label: 'Complemento',
+      placeholder: 'Casa',
+      value: complemento,
+      setValue: setComplemento,
+    },
+    {
+      name: 'estado',
+      label: 'Estado',
+      placeholder: 'SP',
+      mask: 'aa',
+      value: estado,
+      setValue: setEstado,
+    },
+    {
+      name: 'cidade',
+      label: 'Cidade',
+      placeholder: 'São Paulo',
+      value: cidade,
+      setValue: setCidade,
+    },
+    {
+      name: 'bairro',
+      label: 'Bairro',
+      placeholder: 'Higienópolis',
+      value: bairro,
+      setValue: setBairro,
+    },
+  ];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const postAddressData = {
-      id_usuario: localStorage.getItem('userId'),
-      cep: cep,
-      rua: rua,
-      complemento: complemento,
-      bairro: bairro,
-      cidade: cidade,
-      estado: estado,
-      numero: numero,
-    }
-
+    const postAddressData = createAddressData();
 
     try {
       const addressData = await API.postEndereco(postAddressData);
-
-
-      if (addressData && addressData.id) {
-        console.log(addressData);
-
-        alert("Endereço inserido! ID: " + addressData.id);
-
-        // The navigation is conditioned to successful API request
+      console.log(addressData);
+      if (addressData) {
         navigate("/pet-profile");
       } else {
         alert("Error: Couldn't create the address.");
@@ -47,7 +96,6 @@ function Address() {
       alert("Error: The request failed, check your console for more info.");
       console.error("Error in handleSubmit API call:", error);
     }
-
   }
 
   return (
@@ -63,73 +111,22 @@ function Address() {
                   fontSize: "20px",
                   fontWeight: "600"
                 }}>
-              Seu endereço:</h1>
+                                Seu endereço:</h1>
 
               <form onSubmit={handleSubmit}>
 
-                <CustomInput
-                  label="CEP"
-                  placeholder="01310-930"
-                  mask="00000-000"
-                  required={true}
-                  value={cep}
-                  onChange={e => setCep(e.target.value)}
-                />
-
-                <CustomInput
-                  label="Rua"
-                  name="rua"
-                  placeholder="Av Paulista"
-                  required={true}
-                  value={rua}
-                  onChange={e => setRua(e.target.value)}
-                />
-
-                <CustomInput
-                  label="Número"
-                  name="numero"
-                  placeholder="1000"
-                  required={true}
-                  value={numero}
-                  onChange={e => setNumero(e.target.value)}
-                />
-
-                <CustomInput
-                  label="Complemento"
-                  name="complemento"
-                  placeholder="Casa"
-                  required={true}
-                  value={complemento}
-                  onChange={e => setComplemento(e.target.value)}
-                />
-
-                <CustomInput
-                  label="Estado"
-                  name="estado"
-                  placeholder="SP"
-                  required={true}
-                  value={estado}
-                  mask={"aa"}
-                  onChange={e => setEstado(e.target.value)}
-                />
-
-                <CustomInput
-                  label="Cidade"
-                  name="cidade"
-                  placeholder={"São Paulo"}
-                  required={true}
-                  value={cidade}
-                  onChange={e => setCidade(e.target.value)}
-                />
-
-                <CustomInput
-                  label={"Bairro"}
-                  name={"bairro"}
-                  placeholder={"Higienópolis"}
-                  required={true}
-                  value={bairro}
-                  onChange={e => setBairro(e.target.value)}
-                />
+                {/* Cria os CustomInput com base nos valores inseridos em formFields */}
+                {formFields.map((field) => (
+                  <CustomInput
+                    key={field.name}
+                    label={field.label}
+                    placeholder={field.placeholder}
+                    value={field.value}
+                    onChange={e => field.setValue(e.target.value)}
+                    {...(field.mask && {mask: field.mask})}
+                    required={true}
+                  />
+                ))}
 
                 <div className="mt-5" style={{display: 'flex', justifyContent: 'space-between'}}>
 

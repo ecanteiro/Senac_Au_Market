@@ -3,7 +3,7 @@ import axios from 'axios';
 const API = {
   HOST: 'http://localhost:8080',
 
-  postUsuario: async function(postUserData) {
+  postUsuario: async function (postUserData) {
     try {
       let response = await axios.post(this.HOST + '/usuario', postUserData, {
         headers: {
@@ -20,7 +20,7 @@ const API = {
     }
   },
 
-  postEndereco: async function(postUserData) {
+  postEndereco: async function (postUserData) {
     try {
       let response = await axios.post(this.HOST + '/endereco', postUserData, {
         headers: {
