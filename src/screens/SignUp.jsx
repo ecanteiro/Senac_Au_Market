@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CustomInput from "../components/CustomInput.jsx";
 import RegistrationHeader from "../components/RegistrationHeader.jsx";
+import {CommonContainer} from "../components/CommonContainer.jsx";
 
 function SignUp() {
 
@@ -38,55 +39,48 @@ function SignUp() {
 
   return (
     <>
-      <div className="container is-fluid">
-        <section className="mt-5">
-          <div className="columns">
-            <div className="column">
+      <CommonContainer>
+        <RegistrationHeader
+          title={titleText}
+          subtitle={subtitleText}
+        />
 
-              <RegistrationHeader
-                title={titleText}
-                subtitle={subtitleText}
-              />
-
-              <form onSubmit={handleSubmit}>
-                <CustomInput
-                  label="Insira seu e-mail"
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  required={true}
-                />
-                <h4 style={noteStyle}>{emailNote}</h4>
-                <CustomInput
-                  label="Insira uma senha:"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  required={true}
-                />
-                <h4 style={noteStyle}>{passwordNote}</h4>
-                <div className="mt-5" style={actionButtonContainerStyle}>
-                  <Link to={"/"}>
-                    <button className="button is-rounded is-primary-au-market is-outlined">
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-left"></i>
-                      </span>
-                      <span>Voltar</span>
-                    </button>
-                  </Link>
-                  <button type="submit" className="button is-rounded is-primary-au-market">
-                    <span className="icon">
-                      <i className="fa-solid fa-arrow-right"></i>
-                    </span>
-                    <span>Avançar</span>
-                  </button>
-                </div>
-              </form>
-            </div>
+        <form onSubmit={handleSubmit}>
+          <CustomInput
+            label="Insira seu e-mail"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required={true}
+          />
+          <h4 style={noteStyle}>{emailNote}</h4>
+          <CustomInput
+            label="Insira uma senha:"
+            type="password"
+            name="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required={true}
+          />
+          <h4 style={noteStyle}>{passwordNote}</h4>
+          <div className="mt-5" style={actionButtonContainerStyle}>
+            <Link to={"/"}>
+              <button className="button is-rounded is-primary-au-market is-outlined">
+                <span className="icon">
+                  <i className="fa-solid fa-arrow-left"></i>
+                </span>
+                <span>Voltar</span>
+              </button>
+            </Link>
+            <button type="submit" className="button is-rounded is-primary-au-market">
+              <span className="icon">
+                <i className="fa-solid fa-arrow-right"></i>
+              </span>
+              <span>Avançar</span>
+            </button>
           </div>
-        </section>
-      </div>
+        </form>
+      </CommonContainer>
     </>
   );
 }
