@@ -20,15 +20,33 @@ const API = {
     }
   },
 
-  postEndereco: async function (postUserData) {
+  postEndereco: async function (postEnderecoData) {
     try {
-      let response = await axios.post(this.HOST + '/endereco', postUserData, {
+      let response = await axios.post(this.HOST + '/endereco', postEnderecoData, {
         headers: {
           'Content-Type': 'application/json',
         }
       });
       if (response.status !== 200) {
-        throw new Error('Failed to post user data');
+        throw new Error('Failed to post endereço data');
+      }
+      console.log(response.data)
+      return response.data;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  },
+
+
+  postPet: async function (postPetData) {
+    try {
+      let response = await axios.post(this.HOST + '/pet', postPetData, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      if (response.status !== 200) {
+        throw new Error('Failed to post pet data');
       }
       console.log(response.data)
       return response.data;
