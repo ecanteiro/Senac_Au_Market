@@ -3,6 +3,8 @@ import {useState} from "react";
 import InputLabel from "../components/InputLabel.jsx";
 import CustomInput from "../components/CustomInput.jsx";
 import API from "../api.js";
+import {CommonContainer} from "../components/CommonContainer.jsx";
+import RegistrationHeader from "../components/RegistrationHeader.jsx";
 
 function PetProfile() {
 
@@ -69,74 +71,66 @@ function PetProfile() {
 
   return(
     <>
-      <div className="container is-fluid">
-        <section className="mt-5">
-          <div className="columns">
-            <div className="column">
-              <h1 className="subtitle"
-                style=
-                  {{color:'#06B3C4',
-                    textAlign:"center",}}>
-                                Sobre seu pet</h1>
+      <CommonContainer>
+        <RegistrationHeader
+          title={"Sobre seu pet"}/>
+        <form onSubmit={handleSubmit}>
 
-              <form onSubmit={handleSubmit}>
+          {/* Cria os CustomInput com base nos valores inseridos em formFields */}
+          {formFields.map((field) => (
+            <CustomInput
+              key={field.name}
+              label={field.label}
+              placeholder={field.placeholder}
+              value={field.value}
+              onChange={e => field.setValue(e.target.value)}
+              {...(field.mask && {mask: field.mask})}
+              required={true}
+            />
+          ))}
 
-                {/* Cria os CustomInput com base nos valores inseridos em formFields */}
-                {formFields.map((field) => (
-                  <CustomInput
-                    key={field.name}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    value={field.value}
-                    onChange={e => field.setValue(e.target.value)}
-                    {...(field.mask && {mask: field.mask})}
-                    required={true}
-                  />
-                ))}
-
-                <div className="field">
-                  <InputLabel labelTitle="Sexo"/>
-                  <div className="control" style={
-                    {color: '#777777',}}>
-                    <label className="radio">
-                      <input type="radio" id="sexo"
-                        name="sexo" value="M"
-                        checked={sexo === 'M'} onChange={handleSexoChange}/> Masculino
-                    </label>
-                    <label className="radio">
-                      <input type="radio" id="sexo"
-                        name="sexo" value="F"
-                        checked={sexo === 'F'} onChange={handleSexoChange}/> Feminino
-                    </label>
-                  </div>
-                </div>
-
-                <div className="mt-5"
-                  style=
-                    {{display:'flex',
-                      justifyContent: 'space-between',}}>
-                  <Link to={"/address"}>
-                    <button className="button is-rounded is-primary-au-market is-outlined">
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-left"></i>
-                      </span>
-                      <span>Voltar</span>
-                    </button>
-                  </Link>
-
-                  <button className="button is-rounded is-primary-au-market">
-                    <span className="icon">
-                      <i className="fa-solid" ></i>
-                    </span>
-                    <span>Finalizar cadastro</span>
-                  </button>
-
-                </div>
-              </form>
+          <div className="field">
+            <InputLabel labelTitle="Sexo"/>
+            <div className="control" style={
+              {color: '#777777',}}>
+              <label className="radio">
+                <input type="radio" id="sexo"
+                  name="sexo" value="M"
+                  checked={sexo === 'M'} onChange={handleSexoChange}/> Masculino
+              </label>
+              <label className="radio">
+                <input type="radio" id="sexo"
+                  name="sexo" value="F"
+                  checked={sexo === 'F'} onChange={handleSexoChange}/> Feminino
+              </label>
             </div>
           </div>
-        </section>
-      </div>
+
+          <div className="mt-5"
+            style=
+              {{
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}>
+            <Link to={"/address"}>
+              <button className="button is-rounded is-primary-au-market is-outlined">
+                <span className="icon">
+                  <i className="fa-solid fa-arrow-left"></i>
+                </span>
+                <span>Voltar</span>
+              </button>
+            </Link>
+
+            <button className="button is-rounded is-primary-au-market">
+              <span className="icon">
+                <i className="fa-solid"></i>
+              </span>
+              <span>Finalizar cadastro</span>
+            </button>
+
+          </div>
+        </form>
+      </CommonContainer>
     </>
   )
 }
