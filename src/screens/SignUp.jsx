@@ -37,6 +37,8 @@ function SignUp() {
 
   const navigate  = useNavigate();
 
+  localStorage.clear();
+
   useEffect(() => {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);

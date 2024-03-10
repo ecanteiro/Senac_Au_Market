@@ -26,7 +26,8 @@ function AboutYou() {
     setSexo(event.target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const postUserData = {
       senha: localStorage.getItem('password'),
       email: localStorage.getItem('email'),
@@ -37,9 +38,25 @@ function AboutYou() {
       sexo: localStorage.getItem('sexo')
     };
 
-    const userData = await API.postUsuario(postUserData);
-    localStorage.setItem('userId', userData.insertedId);
-    navigate('/address');
+    try {
+      const userData = await API.postUsuario(postUserData);
+
+      if (userData && userData.id) {
+        console.info("userdata!!");
+        console.log(userData);
+        localStorage.setItem('userId', userData.id);
+        alert("Usuário inserido! ID: " + userData.id);
+
+        // The navigation is conditioned to successful API request
+        navigate("/address");
+      } else {
+        alert("Error: Couldn't create the user.");
+      }
+    } catch (error) {
+      alert("Error: The request failed, check your console for more info.");
+      console.error("Error in handleSubmit API call:", error);
+    }
+
   };
 
   return (
