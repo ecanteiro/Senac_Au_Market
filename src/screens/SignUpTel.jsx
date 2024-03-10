@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import CustomInput from "../components/CustomInput.jsx";
 
 function SignUpTel() {
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
-  const [password, setPassword] = useState(
-    localStorage.getItem("password") || ""
-  );
+  const [email, setEmail] = useState( "");
+  const [password, setPassword] = useState("");
 
   const headerStyle = {
     color: "#06B3C4",
@@ -23,8 +21,6 @@ function SignUpTel() {
     margin: "16px 80px",
   };
 
-  const noteStyle = { fontSize: "13px" };
-
   const actionButtonContainerStyle = {
     display: "flex",
     justifyContent: "space-between",
@@ -33,7 +29,7 @@ function SignUpTel() {
 
   const headerText = "Acesse sua conta";
   const subtitleText = "Preencha os campos abaixo para efetuar o login.";
-    
+
   useEffect(() => {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
@@ -52,19 +48,19 @@ function SignUpTel() {
               <form action="">
                 <CustomInput
                   label="Insira seu telefone"
-                  type="email"
+                  type="tel"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 />
-                
+
                 <CustomInput
-                  label="Insira sua senha:"
+                  label="Insira sua senha"
                   type="password"
                   name="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
-                
+
                 <div className="mt-5" style={actionButtonContainerStyle}>
                   <Link to={"/"}>
                     <button className="button is-rounded is-primary-au-market is-outlined">
