@@ -4,6 +4,7 @@ import InputLabel from "../components/InputLabel.jsx";
 import CustomInput from "../components/CustomInput.jsx";
 import API from "../api.js";
 import RegistrationHeader from "../components/RegistrationHeader.jsx";
+import {CommonContainer} from "../components/CommonContainer.jsx";
 
 function AboutYou() {
 
@@ -55,96 +56,89 @@ function AboutYou() {
 
   return (
     <>
-      <div className="container is-fluid">
-        <section className="mt-5">
-          <div className="columns">
-            <div className="column">
-              <RegistrationHeader
-                title={"Sobre você"}
-              />
+      <CommonContainer>
+        <RegistrationHeader
+          title={"Sobre você"}
+        />
+        <form onSubmit={handleSubmit}>
 
-              <form onSubmit={handleSubmit}>
+          <CustomInput
+            label="Nome completo"
+            name="nome"
+            placeholder="Maria da Silva"
+            value={nome}
+            onChange={e => setNome(e.target.value)}
+          />
 
-                <CustomInput
-                  label="Nome completo"
-                  name="nome"
-                  placeholder="Maria da Silva"
-                  value={nome}
-                  onChange={e => setNome(e.target.value)}
-                />
+          <CustomInput
+            label="CPF"
+            mask={"000.000.000-00"}
+            name="cpf"
+            type="text"
+            placeholder="123.456.789-10"
+            value={cpf}
+            onChange={e => setCpf(e.target.value)}
+          />
 
-                <CustomInput
-                  label="CPF"
-                  mask={"000.000.000-00"}
-                  name="cpf"
-                  type="text"
-                  placeholder="123.456.789-10"
-                  value={cpf}
-                  onChange={e => setCpf(e.target.value)}
-                />
+          <CustomInput
+            label="Celular"
+            mask={"(00) 0 0000 0000"}
+            type="tel"
+            value={celular}
+            onChange={e => setCelular(e.target.value)}
+            placeholder={"(11) 91234-5678"}
+          />
 
-                <CustomInput
-                  label="Celular"
-                  mask={"(00) 0 0000 0000"}
-                  type="tel"
-                  value={celular}
-                  onChange={e => setCelular(e.target.value)}
-                  placeholder={"(11) 91234-5678"}
-                />
+          <CustomInput
+            label="Data de Nascimento"
+            mask={"00/00/0000"}
+            placeholder="01/01/2000"
+            name="datanascimento"
+            onChange={e => setDataNascimento(e.target.value)}
+          />
 
-                <CustomInput
-                  label="Data de Nascimento"
-                  mask={"00/00/0000"}
-                  placeholder="01/01/2000"
-                  name="datanascimento"
-                  onChange={e => setDataNascimento(e.target.value)}
-                />
-
-                <div className="field">
-                  <InputLabel labelTitle="Sexo"/>
-                  <div className="control" style={
-                    {color: '#777777',}}>
-                    <label className="radio">
-                      <input type="radio" id="sexo"
-                        name="sexo" value="M"
-                        checked={sexo === 'M'} onChange={handleSexoChange}/> Masculino
-                    </label>
-                    <label className="radio">
-                      <input type="radio" id="sexo"
-                        name="sexo" value="F"
-                        checked={sexo === 'F'} onChange={handleSexoChange}/> Feminino
-                    </label>
-                  </div>
-                </div>
-
-                <div className="mt-5"
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between'
-                  }}>
-
-                  <Link to={'/sign-up'}>
-                    <button className="button is-rounded is-primary-au-market is-outlined">
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-left"></i>
-                      </span>
-                      <span>Voltar</span>
-                    </button>
-                  </Link>
-
-                  <button
-                    className="button is-rounded is-primary-au-market"
-                    type="submit">
-                    <span>Avançar</span>
-                    <span className="icon">
-                      <i className="fa-solid fa-arrow-right"></i></span>
-                  </button>
-                </div>
-              </form>
+          <div className="field">
+            <InputLabel labelTitle="Sexo"/>
+            <div className="control" style={
+              {color: '#777777',}}>
+              <label className="radio">
+                <input type="radio" id="sexo"
+                  name="sexo" value="M"
+                  checked={sexo === 'M'} onChange={handleSexoChange}/> Masculino
+              </label>
+              <label className="radio">
+                <input type="radio" id="sexo"
+                  name="sexo" value="F"
+                  checked={sexo === 'F'} onChange={handleSexoChange}/> Feminino
+              </label>
             </div>
           </div>
-        </section>
-      </div>
+
+          <div className="mt-5"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between'
+            }}>
+
+            <Link to={'/sign-up'}>
+              <button className="button is-rounded is-primary-au-market is-outlined">
+                <span className="icon">
+                  <i className="fa-solid fa-arrow-left"></i>
+                </span>
+                <span>Voltar</span>
+              </button>
+            </Link>
+
+            <button
+              className="button is-rounded is-primary-au-market"
+              type="submit">
+              <span>Avançar</span>
+              <span className="icon">
+                <i className="fa-solid fa-arrow-right"></i></span>
+            </button>
+          </div>
+        </form>
+      </CommonContainer>
     </>
   );
 
