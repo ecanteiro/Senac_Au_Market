@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import {CommonContainer} from "../components/CommonContainer.jsx";
+import RegistrationHeader from "../components/RegistrationHeader.jsx";
 
 function ShoppingCart() {
   const handleButtonClick = () => {
@@ -6,129 +8,99 @@ function ShoppingCart() {
   };
   return (
     <>
-      <div className="container is-fluid">
-        <section className="mt-5">
-          <div className="columns">
-            <div className="column">
-              <form action="">
-                {/* Botão "Limpar Carrinho" abaixo de "Continuar Comprando" com ícone de lixeira */}
-                <div className="field mt-3 has-text-centered">
+
+      <CommonContainer>
+        <RegistrationHeader
+          title="Carrinho de Compras"/>
+
+        <form action="">
+          {/* Texto indicando o produto escolhido */}
+          <div className="field mt-5">
+            <label className="label has-text-weight-bold">
+              Itens:
+            </label>
+            <Link to={'/'}>
+              <div className="media">
+                <div className="media-left">
+                  <figure className="image is-128x128">
+                    <img src="../../src/assets/racao.webp" alt="Product" />
+                  </figure>
+                </div>
+                <div className="media-content ml-3">
+                  <p className="">Ração Úmida Dog NaturalFood</p>
+                  <p>200g</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Total da Compra */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'right',
+            alignContent: 'baseline',
+            borderTop: '1px solid #ccc',
+            padding: '1em'
+          }} className="mt-5">
+            <p className=" mr-1">Total: </p>
+            <p className="has-text-success" style={{fontWeight: 'bold', fontSize: '18px'}}> R$ 100,00</p>
+          </div>
+
+          {/* Pagamento */}
+
+
+          <div className="mt-3" style={{
+            display: `flex`,
+            flexDirection: 'row',
+            justifyContent: 'flex-end'
+          }}>
+            <button className="button is-rounded is-danger is-small">
+              <span className="icon">
+                <i className="fa-solid fa-trash"></i>
+              </span>
+              <span>Limpar Carrinho</span>
+            </button>
+          </div>
+
+          {/* Botões no rodapé da página */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            position: 'fixed',
+            bottom: '10px',
+            left: '10px',
+            right: '10px',
+            backgroundColor: 'white',
+            padding: '10px',
+            borderTop: '1px solid #ccc',
+          }} className="mt-5">
+            <Link to={'/order'}>
+              <button className="button is-rounded is-primary-au-market is-outlined">
+                <span className="icon">
+                  <i className="fa-solid fa-arrow-left"></i>
+                </span>
+                <span>Voltar</span>
+              </button>
+            </Link>
+
+            <div className="field">
+              <div className="control">
+                <div className="field">
                   <div className="control">
-                    <button className="button is-rounded is-danger is-small">
+                    <button className="button is-rounded is-success" onClick={handleButtonClick}>
                       <span className="icon">
-                        <i className="fa-solid fa-trash"></i>
+                        <i className="fa-solid fa-dollar"></i>
                       </span>
-                      <span>Limpar Carrinho</span>
+                      <p>Pagamento</p>
                     </button>
                   </div>
                 </div>
-
-                <h1 className="subtitle mt-3">
-                  <span className="icon">
-                    <i className="fa-solid fa-shopping-cart"></i>
-                  </span>
-                                    Carrinho de Compra
-                </h1>
-
-                {/* Texto indicando o produto escolhido */}
-                <div className="field mt-5">
-                  <label className="label is-uppercase has-text-weight-bold" style={{ display: 'block', width: '100%' }}>
-                                        Produto Escolhido:
-                  </label>
-                  <Link to={'/'}>
-                    <div className="media">
-                      <div className="media-left">
-                        <figure className="image is-64x64">
-                          {/*<img src="your-product-image-url" alt="Product" />*/}
-                        </figure>
-                      </div>
-                      <div className="media-content ml-3">
-                        <p className="is-size-4">Ração úmida dog NaturalFood - Pacote 200g(Carne, Frango ou Suíno)</p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-
-                {/* Total da Compra */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  position: 'fixed',
-                  bottom: '120px',
-                  left: '10px',
-                  right: '10px',
-                  backgroundColor: 'white',
-                  padding: '10px',
-                  borderTop: '1px solid #ccc',
-                }} className="mt-5">
-                  <div className="field">
-                    <label className="label">Total da Compra:</label>
-                    <div className="control">
-                      <span className="has-text-success">R$ 100,00</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pagamento */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  position: 'fixed',
-                  bottom: '70px',
-                  left: '10px',
-                  right: '10px',
-                  backgroundColor: 'white',
-                  padding: '10px',
-                  borderTop: '1px solid #ccc',
-                }} className="mt-5">
-                  <Link to={'/Payment'}>
-                  <div className="field">
-                    <div className="control">
-                      <button className="button is-rounded is-success">
-                                                Pagamento
-                      </button>
-                    </div>
-                  </div>
-                  </Link>
-                </div>
-
-                {/* Botões no rodapé da página */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  position: 'fixed',
-                  bottom: '10px',
-                  left: '10px',
-                  right: '10px',
-                  backgroundColor: 'white',
-                  padding: '10px',
-                  borderTop: '1px solid #ccc',
-                }} className="mt-5">
-                  <Link to={'/order'}>
-                    <button className="button is-rounded is-primary-au-market is-outlined">
-                      <span className="icon">
-                        <i className="fa-solid fa-arrow-left"></i>
-                      </span>
-                      <span>Voltar</span>
-                    </button>
-                  </Link>
-
-                  <div className="field">
-                    <div className="control">
-                      <button className="button is-rounded is-primary" onClick={handleButtonClick}>
-                        <span className="icon">
-                          <i className="fa-solid fa-arrow-right"></i>
-                        </span>
-                        <span>Avançar</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
+        </form>
+
+      </CommonContainer>
     </>
   )
 }
