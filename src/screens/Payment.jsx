@@ -6,6 +6,9 @@ import {CommonContainer} from "../components/CommonContainer.jsx";
 import RegistrationHeader from "../components/RegistrationHeader.jsx";
 
 function Payment() {
+  const handleButtonClick = () => {
+    window.alert('Compra realizada com sucesso!');
+  };
   const [paymentMethod, setPaymentMethod] = useState('');
   const [showCardFields, setShowCardFields] = useState(false);
   const [showPixOptions, setShowPixOptions] = useState(false);
@@ -102,11 +105,11 @@ function Payment() {
         <div className="column">
           <p className='infoSubtitle'>Precisa mudar alguma informação?</p>
           <Link to={'/shopping-cart'}>
-            <button className="button is-fullwidth is-rounded is-primary-au-market">
+            <button className="button is-fullwidth is-rounded is-primary-au-market" onClick={handleButtonClick}>
               <span className="icon">
                 <i className="fa-solid fa-arrow-left"></i>
               </span>
-              <span>Voltar</span>
+              <span>Finalizar</span>
             </button>
           </Link>
         </div>

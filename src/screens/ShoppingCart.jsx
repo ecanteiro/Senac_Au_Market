@@ -3,9 +3,7 @@ import {CommonContainer} from "../components/CommonContainer.jsx";
 import RegistrationHeader from "../components/RegistrationHeader.jsx";
 
 function ShoppingCart() {
-  const handleButtonClick = () => {
-    window.alert('Compra realizada com sucesso!');
-  };
+  
   return (
     <>
 
@@ -82,21 +80,22 @@ function ShoppingCart() {
                 <span>Voltar</span>
               </button>
             </Link>
-
-            <div className="field">
-              <div className="control">
-                <div className="field">
-                  <div className="control">
-                    <button className="button is-rounded is-success" onClick={handleButtonClick}>
-                      <span className="icon">
-                        <i className="fa-solid fa-dollar"></i>
-                      </span>
-                      <p>Pagamento</p>
-                    </button>
+            <Link to={'/Payment'}>
+              <div className="field">
+                <div className="control">
+                  <div className="field">
+                    <div className="control">
+                      <button className="button is-rounded is-success">
+                        <span className="icon">
+                          <i className="fa-solid fa-dollar"></i>
+                        </span>
+                        <p>Pagamento</p>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </form>
 
